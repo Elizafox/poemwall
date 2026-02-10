@@ -121,7 +121,7 @@ form.addEventListener("submit", async (e) => {
       epoch,
       difficulty: CUR_DIFFICULTY,
       onProgress: ({ tried, best }) => {
-        status.textContent = `Mining… tried ${tried.toLocaleString()} (best ${best} bits)`;
+        status.textContent = `Completing anti-spam puzzle… tried ${tried.toLocaleString()} (best ${best} bits)`;
       },
     });
 
