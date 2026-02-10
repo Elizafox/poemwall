@@ -76,7 +76,6 @@ subscribeFeed(gun, async (post) => {
   try {
     if (!post || typeof post !== "object") return;
     if (typeof post.poem !== "string") return;
-
     if (
       !Number.isInteger(post.pow_epoch) ||
       !Number.isInteger(post.pow_difficulty) ||
@@ -84,8 +83,16 @@ subscribeFeed(gun, async (post) => {
     )
       return;
 
-    if (post.pow_difficutly < MIN_DIFFICULTY) return;
-    if (!isEpochFresh(post.pow_epoch)) return;
+    const poem = post.poem;
+    const epoch = post.pow_epoch;
+    const difficulty = post.pow_difficulty;
+    const nonce = post.pow_nonce;
+
+    if (difficulty < MIN_DIFFICULTY) return;
+    if (!isEpochFresh(epoch)) return;
+
+    let res = await verifyPow({ poem, epoch, difficulty, nonce });
+    if (!res) return;
 
     renderPost(post);
   } catch (err) {

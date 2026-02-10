@@ -59,6 +59,7 @@ export function subscribeFeed(gun, onPost) {
     .on((data) => {
       if (!data || typeof data !== "object") return;
       if (!data.id || !data.poem) return;
+      if (!data.pow_epoch || !data.pow_nonce || !data.pow_difficulty) return;
       if (seen.has(data.id)) return;
       seen.add(data.id);
       onPost(data);
