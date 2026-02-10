@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PoemWall</title>
   <link rel="stylesheet" href="./style.css" />
+
+  <meta property="og:title" content="PoemWall" />
+  <meta property="og:description" content="Turns a random phrase into poetry and writes it on a public wall" />
+  <meta property="og:image" content="https://elizafox.github.io/poemwall/og.png" />
+  <meta property="og:url" content="https://elizafox.github.io/poemwall/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PoemWall" />
+  <meta name="twitter:description" content="Turns a random phrase into poetry and writes it on a public wall" />
+  <meta name="twitter:image" content="https://elizafox.github.io/poemwall/og.png" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
   <main class="wrap">
@@ -19,7 +31,7 @@
       <form id="phrase-form" class="form" autocomplete="off">
         <label class="label" for="phrase">
           Your phrase
-          <span class="hint">Client-side only. We post only the generated poem to GUN.</span>
+          <span class="hint">Client-side only. We post only the generated poem to the wall.</span>
         </label>
 
         <textarea
