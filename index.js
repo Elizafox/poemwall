@@ -80,11 +80,11 @@ subscribeFeed(gun, async (post) => {
     if (
       !Number.isInteger(post.pow_epoch) ||
       !Number.isInteger(post.pow_difficulty) ||
-      post.pow_difficutly < MIN_DIFFICULTY ||
       typeof post.pow_nonce !== "string"
     )
       return;
 
+    if (post.pow_difficutly < MIN_DIFFICULTY) return;
     if (!isEpochFresh(post.pow_epoch)) return;
 
     renderPost(post);
