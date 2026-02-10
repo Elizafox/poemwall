@@ -51,7 +51,7 @@ savePeersBtn.addEventListener("click", () => {
   peerStatus.textContent = "Saved. Reconnected.";
 });
 
-function renderPost({ ts, poem, pow_epoch, pow_difficulty }) {
+function renderPost({ ts, poem }) {
   const el = document.createElement("div");
   el.className = "post";
 
@@ -60,7 +60,7 @@ function renderPost({ ts, poem, pow_epoch, pow_difficulty }) {
 
   const when = new Date(ts || Date.now()).toLocaleString();
 
-  meta.textContent = `${when} · PoW ${pow_difficulty} bits · epoch ${pow_epoch}`;
+  meta.textContent = `${when}`;
 
   const p = document.createElement("p");
   p.className = "poem";
