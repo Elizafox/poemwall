@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PoemWall</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1>PoemWall</h1>
+      <p class="subtitle">Post a phrase. The wall eats it and outputs dream residue.</p>
+    </header>
+
+    <section class="card">
+      <h2>Submit</h2>
+
+      <form id="phrase-form" class="form" autocomplete="off">
+        <label class="label" for="phrase">
+          Your phrase
+          <span class="hint">Client-side only. We post only the generated poem to GUN.</span>
+        </label>
+
+        <textarea
+          id="phrase"
+          class="textarea"
+          rows="4"
+          maxlength="500"
+          placeholder="e.g. I love you."
+          required
+        ></textarea>
+
+        <div class="row">
+          <div class="counter"><span id="char-count">0</span>/500</div>
+          <button type="submit" class="btn" id="submit-btn">Generate &amp; Post</button>
+        </div>
+
+        <details class="details">
+          <summary>Peer settings</summary>
+          <p class="fineprint">
+            You need relay peers for cross-client sync. Defaults are temporary peers for now…
+          </p>
+          <label class="label" for="peers">Peers (one URL per line)</label>
+          <textarea id="peers" class="textarea" rows="3" spellcheck="false"></textarea>
+          <div class="row">
+            <button type="button" class="btn btn-secondary" id="save-peers">Save peers</button>
+            <span class="status" id="peer-status" aria-live="polite"></span>
+          </div>
+        </details>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Preview</h2>
+      <p class="result-text" id="preview">Your generated poem will appear here.</p>
+      <div class="row">
+        <button type="button" class="btn btn-secondary" id="copy-btn" disabled>Copy</button>
+        <span class="status" id="status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Wall</h2>
+      <div id="feed" class="feed" aria-live="polite"></div>
+      <p class="fineprint">
+        If the feed stays empty, your peer list is probably dead or blocked by network conditions.
+      </p>
+      <p class="fineprint">
+        This page uses a tiny proof-of-work step.
+        Your browser solves a small puzzle before posting, which makes mass spam expensive.
+        Mining is a simple hashing step; nothing is stored, and no cryptocurrency is involved.
+      </p>
+    </section>
+  </main>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>

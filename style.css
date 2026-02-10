@@ -1,0 +1,237 @@
+:root {
+  --bg: #0b0b0b;
+  --fg: #eaeaea;
+  --muted: rgba(255,255,255,0.72);
+  --panel: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.16);
+  --shadow: 0 10px 30px rgba(0,0,0,0.45);
+
+  --accent: #9b7bff; /* tasteful purple */
+  --accent2: #66e3ff;
+
+  --btn-bg: rgba(255,255,255,0.10);
+  --btn-hover: rgba(255,255,255,0.16);
+  --btn-border: rgba(255,255,255,0.18);
+
+  --radius: 16px;
+  --pad: 18px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f7fb;
+    --fg: #141418;
+    --muted: rgba(0,0,0,0.70);
+    --panel: rgba(0,0,0,0.04);
+    --border: rgba(0,0,0,0.12);
+    --shadow: 0 10px 30px rgba(0,0,0,0.10);
+
+    --btn-bg: rgba(0,0,0,0.06);
+    --btn-hover: rgba(0,0,0,0.10);
+    --btn-border: rgba(0,0,0,0.12);
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(155,123,255,0.18), transparent 60%),
+              radial-gradient(1000px 700px at 80% 20%, rgba(102,227,255,0.14), transparent 55%),
+              var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  line-height: 1.5;
+}
+
+.wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 28px 16px 40px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--pad);
+  box-shadow: var(--shadow);
+  margin-top: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.card h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.form { margin: 0; }
+
+.label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.hint {
+  display: block;
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: 4px;
+}
+
+.textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 110px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.12);
+  color: var(--fg);
+  padding: 12px 12px;
+  font: inherit;
+  outline: none;
+}
+
+@media (prefers-color-scheme: light) {
+  .textarea { background: rgba(255,255,255,0.7); }
+}
+
+.textarea:focus {
+  border-color: rgba(155,123,255,0.55);
+  box-shadow: 0 0 0 4px rgba(155,123,255,0.18);
+}
+
+.row {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.counter {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--btn-border);
+  background: linear-gradient(180deg, var(--btn-bg), rgba(0,0,0,0.02));
+  color: var(--fg);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+  user-select: none;
+}
+
+.btn:hover {
+  background: linear-gradient(180deg, var(--btn-hover), rgba(0,0,0,0.02));
+  transform: translateY(-1px);
+  border-color: rgba(155,123,255,0.35);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  font-weight: 600;
+  border-color: rgba(102,227,255,0.30);
+}
+
+.fineprint {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.result {
+  margin-top: 14px;
+}
+
+.result-text {
+  margin: 0;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px dashed var(--border);
+  background: rgba(0,0,0,0.10);
+  min-height: 54px;
+}
+
+.details summary {
+  cursor: pointer;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.feed {
+  display: grid;
+  gap: 10px;
+}
+
+.post {
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 12px 12px;
+}
+
+.post .meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.post .poem {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+@media (prefers-color-scheme: light) {
+  .result-text { background: rgba(255,255,255,0.65); }
+}
+
+.status {
+  color: var(--muted);
+  min-height: 1.2em;
+}
+
+.footer {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
