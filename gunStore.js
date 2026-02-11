@@ -7,10 +7,12 @@ function getGunCtor() {
 }
 
 const DEFAULT_PEERS = [
-  // Public test peers seen in examples/issues. Expect occasional flakiness.
+  "https://gun.defucc.me/gun",
+  "https://gun.o8.is/gun",
+  "https://shogun-relay.scobrudot.dev/gun",
+  "https://relay.peer.ooo/gun",
   "https://try.axe.eco/gun",
   "https://test.era.eco/gun",
-  "https://gun-manhattan.herokuapp.com/gun", // historically common, but can be down.
 ];
 
 export function loadPeers() {
