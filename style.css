@@ -327,6 +327,14 @@ h1 {
   .result-text { background: rgba(255,255,255,0.65); }
 }
 
+a {
+  color: var(--accent);
+}
+
+a:visited {
+  color: var(--accent2);
+}
+
 .status {
   color: var(--muted);
   min-height: 1.2em;
