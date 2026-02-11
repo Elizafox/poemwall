@@ -99,9 +99,9 @@
       <ol>
         <li>The input is hashed using a cryptographic function.</li>
         <li>The resulting bytes are used as indices into fixed word arrays.</li>
-        <li>A deterministic grammar template assembles the sentence.</li>
-        <li>A proof-of-work nonce is computed such that the post meets a minimum difficulty.</li>
-        <li>Posts are stored in a distributed database.</li>
+        <li>A deterministic grammar template assembles the sentence from the hash value.</li>
+        <li>A proof-of-work nonce is computed such that the post meets a minimum difficulty (conceptually similar to <a href="https://en.wikipedia.org/wiki/Hashcash">Hashcash</a>).</li>
+        <li>Posts are stored in <a href="https://gun.eco/">a distributed database.</a></li>
         <li>Clients independently verify proof-of-work, phrase vocabulary, and freshness before rendering.</li>
       </ol>
 
