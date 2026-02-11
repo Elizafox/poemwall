@@ -22,154 +22,174 @@
   <main class="wrap">
     <h1>PoemWall</h1>
 
-    <h2>What is this?</h2>
-    <p>
-      PoemWall is an anonymous public wall where you don't post your message directly.
-    </p>
-    <p>
-      <ol>
-        <li>You write a phrase.</li>
-        <li>Your browser transforms it.</li>
-        <li>The wall stores only the transformed result.</li>
-      </ol>
-      The output is a short, surreal sentence built from a fixed vocabulary.
-      Your original text is never stored. It cannot be recovered. What appears on the wall is a residue; a cryptographic echo.
-    </p>
+    <section aria-labelledby="what-is-this">
+      <h2>What is this?</h2>
+      <p>
+        PoemWall is an anonymous public wall where you don't post your message directly.
+      </p>
+      <p>
+        <ol>
+          <li>You write a phrase.</li>
+          <li>Your browser transforms it.</li>
+          <li>The wall stores only the transformed result.</li>
+        </ol>
+        The output is a short, surreal sentence built from a fixed vocabulary.
+        Your original text is never stored. It cannot be recovered. What appears on the wall is a residue; a cryptographic echo.
+      </p>
+    </section>
 
     <hr />
 
-    <h2>Why does it work like this?</h2>
-    <p>
-      Most anonymous walls eventually become unusable. <br />
-      Spam. Hate. Bots. Chaos.
-    </p>
-    <p>
-      PoemWall takes a different approach. <br />
+    <section aria-labelledby="why-does-it-work-like-this">
+      <h2>Why does it work like this?</h2>
+      <p>
+        Most anonymous walls eventually become unusable. <br />
+        Spam. Hate. Bots. Chaos.
+      </p>
+      <p>
+        PoemWall takes a different approach. <br />
 
-      Instead of moderating content after it’s posted, it changes what posting means:
-      <ul>
-        <li>Messages are transformed into constrained, surreal sentences.</li>
-        <li>Only words from a curated vocabulary are allowed.</li>
-        <li>Each post requires a small computational effort before it can be accepted.</li>
-      </ul>
-        
-      The result is a space where:
-      <ul>
-        <li>No one can (hopefully) post raw abuse</li>
-        <li>Spam is expensive</li>
-        <li>What remains feels strange, abstract, and sometimes unexpectedly poetic.</li>
-      </ul>
+        Instead of moderating content after it’s posted, it changes what posting means:
+        <ul>
+          <li>Messages are transformed into constrained, surreal sentences.</li>
+          <li>Only words from a curated vocabulary are allowed.</li>
+          <li>Each post requires a small computational effort before it can be accepted.</li>
+        </ul>
 
-      It's moderation by construction.
-    </p>
+        The result is a space where:
+        <ul>
+          <li>No one can (hopefully) post raw abuse</li>
+          <li>Spam is expensive</li>
+          <li>What remains feels strange, abstract, and sometimes unexpectedly poetic.</li>
+        </ul>
 
-    <hr />
-    
-    <h2>Proof of Work? Why? Is this mining cryptocurrency?</h2>
-    <p>
-      <strong>No.</strong> There is no blockchain. There are no tokens. No one is making money. No wallets exist.
-    </p>
-    <p>
-      You can verify this for yourself. <a href="https://github.com/Elizafox/poemwall">The project is open source.</a> The application is not obfuscated.
-    </p>
-    <p>
-      When you see "Solving anti-spam puzzle" or a short delay before posting, your browser is solving a tiny computational puzzle.
-      This is called <em>proof-of-work</em>.
-      Think of it like a digital postage stamp. Sending one letter is cheap. Sending thousands of letters is costly.
-    </p>
-    
-    <hr />
-    
-    <h2>What actually happens when I post?</h2>
-    <h3>In plain language</h3>
-    <p>
-      <ol>
-        <li>You type a message.</li>
-        <li>Your browser converts it into a hash (a one-way fingerprint).</li>
-        <li>That hash is used to select words from curated word lists.</li>
-        <li>A sentence is constructed from those words.</li>
-        <li>Your browser proves it did a small amount of work.</li>
-        <li>Only the generated sentence is shared.</li>
-      </ol>
-
-      Your original message never leaves your device.
-    </p>
-    <h3>In technical terms</h3>
-    <p>
-      <ol>
-        <li>The input is hashed using a cryptographic function.</li>
-        <li>The resulting bytes are used as indices into fixed word arrays.</li>
-        <li>A deterministic grammar template assembles the sentence from the hash value.</li>
-        <li>A proof-of-work nonce is computed such that the post meets a minimum difficulty (conceptually similar to <a href="https://en.wikipedia.org/wiki/Hashcash">Hashcash</a>).</li>
-        <li>Posts are stored in <a href="https://gun.eco/">a distributed database.</a></li>
-        <li>Clients independently verify proof-of-work, phrase vocabulary, and freshness before rendering.</li>
-      </ol>
-
-      There is no central moderation server. Each client decides what is valid and what to display.
-    </p>
+        It's moderation by construction.
+      </p>
+    </section>
 
     <hr />
 
-    <h2>Why constrain the vocabulary?</h2>
-    <p>
-      Language carries power. Some words create harm regardless of intent.
-    </p>
-    <p>
-      Instead of attempting to filter arbitrary user text, PoemWall only allows words from a curated set.
-      Every sentence on the wall is composed from those lists. 
-      This keeps the wall abstract, strange, and expressive, without allowing direct abuse.
-    </p>
+    <section aria-labelledby="proof-of-work">
+      <h2>Proof of Work? Why? Is this mining cryptocurrency?</h2>
+      <p>
+        <strong>No.</strong> There is no blockchain. There are no tokens. No one is making money. No wallets exist.
+      </p>
+      <p>
+        You can verify this for yourself. <a href="https://github.com/Elizafox/poemwall">The project is open source.</a> The application is not obfuscated.
+      </p>
+      <p>
+        When you see "Solving anti-spam puzzle" or a short delay before posting, your browser is solving a tiny computational puzzle.
+        This is called <em>proof-of-work</em>.
+        Think of it like a digital postage stamp. Sending one letter is cheap. Sending thousands of letters is costly.
+      </p>
+    </section>
 
     <hr />
 
-    <h2>Is it art?</h2>
-    <p>
-      Maybe.
-    </p>
-    <p>
-      It's a machine that turns private input into public abstraction. It's a system where constraint produces meaning.
-      It's a small experiment in anonymity, friction, distributed systems, and transformation.
-    </p>
-    <p>
-      It sits somewhere between generative poetry, cryptographic protocol, and internet shitposting.
+    <section aria-labelledby="what-actually-happens">
+      <h2>What actually happens when I post?</h2>
+      <article aria-labelledby="in-plain-terms">
+        <h3>In plain language</h3>
+        <p>
+          <ol>
+            <li>You type a message.</li>
+            <li>Your browser converts it into a hash (a one-way fingerprint).</li>
+            <li>That hash is used to select words from curated word lists.</li>
+            <li>A sentence is constructed from those words.</li>
+            <li>Your browser proves it did a small amount of work.</li>
+            <li>Only the generated sentence is shared.</li>
+          </ol>
 
-      <br />
+          Your original message never leaves your device.
+        </p>
+      </article>
+      <article aria-labelledby="in-technical-terms">
+        <h3>In technical terms</h3>
+        <p>
+          <ol>
+            <li>The input is hashed using a cryptographic function.</li>
+            <li>The resulting bytes are used as indices into fixed word arrays.</li>
+            <li>A deterministic grammar template assembles the sentence from the hash value.</li>
+            <li>A proof-of-work nonce is computed such that the post meets a minimum difficulty (conceptually similar to <a href="https://en.wikipedia.org/wiki/Hashcash">Hashcash</a>).</li>
+            <li>Posts are stored in <a href="https://gun.eco/">a distributed database.</a></li>
+            <li>Clients independently verify proof-of-work, phrase vocabulary, and freshness before rendering.</li>
+          </ol>
 
-      You decide what it is.
-    </p>
+          There is no central moderation server. Each client decides what is valid and what to display.
+        </p>
+      </article>
+    </section>
 
     <hr />
 
-    <h2>What is stored?</h2>
-    <p>
-      Only the following, nothing more:
-	  <ul>
-        <li>The generated sentence</li>
-        <li>A timestamp</li>
-        <li>Proof-of-work metadata.</li>
-      </ul>
-
-      Your original message is not stored and cannot be reconstructed. It is gone forever once posted to the wall.
-    </p>
-    <p>
-      Your IP address is not stored. No personally identifable information is kept.
-    </p>
+    <section aria-labelledby="why-constrain-the-vocabulary">
+      <h2>Why constrain the vocabulary?</h2>
+      <p>
+        Language carries power. Some words create harm regardless of intent.
+      </p>
+      <p>
+        Instead of attempting to filter arbitrary user text, PoemWall only allows words from a curated set.
+        Every sentence on the wall is composed from those lists.
+        This keeps the wall abstract, strange, and expressive, without allowing direct abuse.
+      </p>
+    </section>
 
     <hr />
 
-    <h2>Why does it feel weird?</h2>
-    <p>
-      Because it is.
-    </p>
-    <p>
-      PoemWall is not designed for virality. It's designed to see what happens when anonymous speech is filtered through mathematics and constraint.
-    <p>
-    <p>
-      Sometimes the output is beautiful. Sometimes it's uncanny. Sometimes it's absurd.
-    </p>
-    <p>
-      That's part of the point.
-    </p>
+    <section aria-labelledby="is-it-art">
+      <h2>Is it art?</h2>
+      <p>
+        Maybe.
+      </p>
+      <p>
+        It's a machine that turns private input into public abstraction. It's a system where constraint produces meaning.
+        It's a small experiment in anonymity, friction, distributed systems, and transformation.
+      </p>
+      <p>
+        It sits somewhere between generative poetry, cryptographic protocol, and internet shitposting.
+
+        <br />
+
+        You decide what it is.
+      </p>
+    </section>
+
+    <hr />
+
+    <section aria-labelledby="what-is-stored">
+      <h2>What is stored?</h2>
+      <p>
+        Only the following, nothing more:
+	    <ul>
+          <li>The generated sentence</li>
+          <li>A timestamp</li>
+          <li>Proof-of-work metadata.</li>
+        </ul>
+
+        Your original message is not stored and cannot be reconstructed. It is gone forever once posted to the wall.
+      </p>
+      <p>
+        Your IP address is not stored. No personally identifable information is kept.
+      </p>
+    </section>
+
+    <hr />
+
+    <section aria-labelledby="why-does-it-feel-weird">
+      <h2>Why does it feel weird?</h2>
+      <p>
+        Because it is.
+      </p>
+      <p>
+        PoemWall is not designed for virality. It's designed to see what happens when anonymous speech is filtered through mathematics and constraint.
+      <p>
+      <p>
+        Sometimes the output is beautiful. Sometimes it's uncanny. Sometimes it's absurd.
+      </p>
+      <p>
+        That's part of the point.
+      </p>
+    </section>
   </main>
 </body>
 </html>
