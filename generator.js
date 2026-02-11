@@ -16,6 +16,9 @@ const TAIL_PREP = ["of", "with", "without"];
 
 let WORDS = null;
 
+// For checking
+let ALL_WORDS = null;
+
 async function loadJSON(path) {
   const r = await fetch(path);
   if (!r.ok) throw new Error(`Failed to load ${path}: ${r.status}`);
@@ -41,6 +44,47 @@ async function loadWords() {
 
   WORDS = { nouns, verbs, adjs, advs };
   return WORDS;
+}
+
+async function loadAllWords() {
+  if (!ALL_WORDS) {
+    const { nouns, verbs, adjs, advs } = await loadWords();
+
+    ALL_WORDS = new Set(
+      [
+        ...nouns,
+        ...verbs,
+        ...adjs,
+        ...advs,
+        ...DETS_SING,
+        ...DETS_PLUR,
+        ...PREPS,
+        ...CONJS,
+        ...TAIL_PREP,
+      ].map((w) => w.toLowerCase()),
+    );
+  }
+
+  return ALL_WORDS;
+}
+
+function tokenizeForWordlistScan(str) {
+  return str
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[^a-z\s]/g, " ") // remove punctuation, keep letters + spaces
+    .split(/\s+/)
+    .filter(Boolean);
+}
+
+// A very basic checking function to verify each word is in the list
+export async function checkPoem(str) {
+  const allWords = await loadAllWords();
+  const tokens = tokenizeForWordlistScan(str);
+  for (const word of tokens) {
+    if (!allWords.has(word)) return false;
+  }
+  return true;
 }
 
 function aOrAn(word) {

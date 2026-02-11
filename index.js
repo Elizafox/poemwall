@@ -1,4 +1,4 @@
-import { generatePoem } from "./generator.js";
+import { generatePoem, checkPoem } from "./generator.js";
 import {
   loadPeers,
   savePeers,
@@ -150,8 +150,11 @@ subscribeFeed(gun, async (post) => {
     if (difficulty < MIN_DIFFICULTY) return;
     if (!isEpochFresh(epoch)) return;
 
-    let res = await verifyPow({ poem, epoch, difficulty, nonce });
-    if (!res) return;
+    let verify_poem = await checkPoem(poem);
+    if (!verify_poem) return;
+
+    let verify_pow = await verifyPow({ poem, epoch, difficulty, nonce });
+    if (!verify_pow) return;
 
     renderPost(post);
   } catch (err) {
