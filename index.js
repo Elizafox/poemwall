@@ -8,7 +8,7 @@ import {
 } from "./gunStore.js";
 import { findPow, currentEpoch, verifyPow } from "./pow.js";
 
-const MAX_EPOCH_DRIFT = 3; // e.g. 3 * 10min = 30 minutes if epoch is 10min
+const MAX_EPOCH_DRIFT = 3; // e.g. 3 * 24h
 const MIN_DIFFICULTY = 20; // Minimum difficulty
 const CUR_DIFFICULTY = 20; // Current difficulty
 const COOLDOWN_MS = 15_000; // 15s

@@ -52,7 +52,8 @@ function leadingZeroBits(hash) {
   return bits;
 }
 
-export function currentEpoch(epochMs = 10 * 60 * 1000) {
+const EPOCH_DEFAULT = 24 * 60 * 60 * 1000; // 24 hours
+export function currentEpoch(epochMs = EPOCH_DEFAULT) {
   // Returns a u32 epoch number (fits for a long time)
   return Math.floor(Date.now() / epochMs) >>> 0;
 }
